@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>뉴스스탠드</title>
+
+  <!-- swiper.js demos -->
+  <!-- https://swiperjs.com/demos -->
+
+  <!-- swiper api -->
+  <!-- https://swiperjs.com/swiper-api -->
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!-- style -->
+  <link rel="stylesheet" href="newsStand.css" />
+
+  <!-- group_issue(NM_NEWSSTAND_HEADER) -->
+  <link rel="stylesheet" href="./css/group_issue.css">
+
+  <!-- group_title(NM_NEWSSTAND_TITLE) -->
+  <link rel="stylesheet" href="./css/group_title.css">
+
+  <!-- group_news(NM_NEWSSTAND_DEFAULT_LIST) -->
+  <link rel="stylesheet" href="./css/group_news.css">
+
+  <!-- error_view(구독한 언론사) -->
+  <link rel="stylesheet" href="./css/error_view.css">
+
+  <!-- jquery CDN -->
+  <!-- https://code.jquery.com/ -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+
+  <div id="NM_INT_LEFT" class="column_left">
+    <div id="newsstand" class="sc_newscast">
+
+      <h2 class="blind">뉴스스탠드</h2>
+
+      <div id="NM_NEWSSTAND_HEADER" class="group_issue">
+        <div class="issue_area">
+          <a href="http://news.naver.com/main/list.naver?mode=LPOD&amp;mid=sec&amp;sid1=001&amp;sid2=140&amp;oid=001&amp;isYeonhapFlash=Y"
+            class="link_media">
+            연합뉴스
+          </a>
+          <div id="yna_rolling" class="list_issue">
+            <div class="swiper-container group-issue-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="http://news.naver.com/main/list.nhn?mode=LPOD&amp;mid=sec&amp;sid1=001&amp;sid2=140&amp;oid=001&amp;isYeonhapFlash=Y&amp;aid=0012576304"
+                    class="issue">
+                    이낙연 "성남 서울공항 옮겨 스마트 신도시 건설…3만호 공급"
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="http://news.naver.com/main/list.nhn?mode=LPOD&amp;mid=sec&amp;sid1=001&amp;sid2=140&amp;oid=001&amp;isYeonhapFlash=Y&amp;aid=0012577427"
+                    class="issue">
+                    방역둑 높여도 진정 안되는 비수도권…고강도 '플러스알파' 대책
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="http://news.naver.com/main/list.nhn?mode=LPOD&amp;mid=sec&amp;sid1=001&amp;sid2=140&amp;oid=001&amp;isYeonhapFlash=Y&amp;aid=0012577503"
+                    class="issue">
+                    코스피 1.34% 상승…3,280선 안착
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="direct_area">
+          <a href="http://m.sports.naver.com/tokyo2020/index" class="link_olympic">
+            <span class="blind">TOKYO 2020</span>
+          </a>
+          <a href="http://news.naver.com/" class="link_news">네이버뉴스</a>
+          <a href="http://entertain.naver.com/home" class="link_direct">연예</a>
+          <a href="http://sports.news.naver.com/" class="link_direct">스포츠</a>
+        </div>
+      </div>
+
+      <div id="NM_NEWSSTAND_TITLE" class="group_title">
+        <a href="http://newsstand.naver.com/" class="link_newsstand" target="_blank">뉴스스탠드</a>
+        <div id="NM_NEWSSTAND_data_buttons" class="sort_area">
+          <a href="#" role="button" data-type="my" class="btn_sort"> 구독한 언론사 </a>
+          <a href="#" role="button" data-type="all" class="btn_sort sort_on">전체언론사</a>
+        </div>
+        <div id="NM_NEWSSTAND_view_buttons" class="set_area">
+          <a href="#" role="button" data-type="list" class="btn_set set_on">
+            <i class="ico_list"><span class="blind">리스트형</span></i>
+          </a>
+          <a href="#" role="button" data-type="thumb" class="btn_set">
+            <i class="ico_tile"><span class="blind">썸네일형</span></i>
+          </a>
+          <a href="http://newsstand.naver.com/config.html" class="btn_set" data-type="set" target="_blank">
+            <i class="ico_set"><span class="blind">설정</span></i>
+          </a>
+        </div>
+      </div>
+
+      <div id="NM_NEWSSTAND_VIEW_CONTAINER">
+        <!-- list -->
+        <div id="NM_NEWSSTAND_DEFAULT_LIST" class="group_news">
+          <a href="#" role="button" class="pm_btn_prev_l">
+            <i class="ico_btn"><span class="blind">이전</span></i>
+          </a>
+          <a href="#" role="button" class="pm_btn_next_l">
+            <i class="ico_btn"><span class="blind">다음</span></i>
+          </a>
+          <div class="list_view">
+            <div class="option_area">
+              <div class="list_option_wrap">
+                <ul class="list_option">
+                  <li class="option_item option_item_1 option_on">
+                    <div class="swiper-pagination"></div>
+                    <a href="#" class="option">종합/경제</a>
+                  </li>
+                  <li class="option_item option_item_2">
+                    <div class="swiper-pagination"></div>
+                    <a href="#" class="option">방송/통신</a>
+                  </li>
+                  <li class="option_item option_item_3">
+                    <div class="swiper-pagination"></div>
+                    <a href="#" class="option">IT</a>
+                  </li>
+                  <li class="option_item option_item_4">
+                    <div class="swiper-pagination"></div>
+                    <a href="#" class="option">영자지</a>
+                  </li>
+                  <li class="option_item option_item_5">
+                    <div class="swiper-pagination"></div>
+                    <a href="#" class="option">스포츠/연예</a>
+                  </li>
+                  <li class="option_item option_item_6">
+                    <div class="swiper-pagination"></div>
+                    <a href="#" class="option">매거진/전문지</a>
+                  </li>
+                  <li class="option_item option_item_7">
+                    <div class="swiper-pagination"></div>
+                    <a href="#" class="option">지역</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 종합/경제 -->
+            <div class="_NM_NEWSSTAND_ARTICLE_CONTAINER swiper-container totalSwiper">
+              <div class="swiper-wrapper">
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/942" class="link_media" target="_blank">
+                      <img src="./img/media/1-1.png" height="20" alt="비즈니스포스트">
+                    </a>
+                    <span class="time">2021.08.05. 16:29 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244220" target="_blank"
+                        class="thumb">
+                        <img src="./img/main/1-1.jpg" width="196" height="134"
+                          alt="한화솔루션 기체용기 설비투자 본격화, 류두형 수소탱크 선점 원해">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244220" target="_blank"
+                        class="title">한화솔루션 기체용기 설비투자 본격화, 류두형 수소탱크 선점 원해
+                      </a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244219" target="_blank"
+                            class="news">
+                            푸르덴셜생명 대표 1년 민기식, 윤종규 지지 업고 디지털 혁신에 집중
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244216" target="_blank"
+                            class="news">
+                            대부업 철수에 정부는 우수업체 우대제도, 리드코프에게 활로 되나
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244215" target="_blank"
+                            class="news">
+                            한국은행 금리인상 미뤄지나, 매파 고승범 금융통화위 떠나 금융위로
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244191" target="_blank"
+                            class="news">
+                            블룸버그이코노믹스, 미국 올해 경제성장률 전망치 6.3%로 낮춰
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244173" target="_blank"
+                            class="news">
+                            윤석열에 호감 46.0%, 이재명 40.1% 최재형 39.4% 이낙연 37.9%
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244172" target="_blank"
+                            class="news">
+                            신한금융 KB금융, 내부거래 공시미흡으로 과태료 처분 받아
+                          </a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        비즈니스포스트 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/016" class="link_media" target="_blank">
+                      <img src="./img/media/1-2.png" height="20" alt="헤럴드경제">
+                    </a>
+                    <span class="time">2021.08.06. 22:48 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244220" target="_blank"
+                        class="thumb">
+                        <img src="./img/main/1-2.jpg" width="196" height="134"
+                          alt="‘모든 힘 다 쏟았지만…’ 한국 여자배구, 4강서 브라질 장신 벽에 무릎">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244220" target="_blank"
+                        class="title">한1화솔루션 기체용기 설비투자 본격화, 류두형 수소탱크 선점 원해
+                      </a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244219" target="_blank"
+                            class="news">
+                            푸르덴셜생명 대표 1년 민기식, 윤종규 지지 업고 디지털 혁신에 집중
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244216" target="_blank"
+                            class="news">
+                            대부업 철수에 정부는 우수업체 우대제도, 리드코프에게 활로 되나
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244215" target="_blank"
+                            class="news">
+                            한국은행 금리인상 미뤄지나, 매파 고승범 금융통화위 떠나 금융위로
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244191" target="_blank"
+                            class="news">
+                            블룸버그이코노믹스, 미국 올해 경제성장률 전망치 6.3%로 낮춰
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244173" target="_blank"
+                            class="news">
+                            윤석열에 호감 46.0%, 이재명 40.1% 최재형 39.4% 이낙연 37.9%
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244172" target="_blank"
+                            class="news">
+                            신한금융 KB금융, 내부거래 공시미흡으로 과태료 처분 받아
+                          </a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        헤럴드경제 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 방송/통신 -->
+            <div class="_NM_NEWSSTAND_ARTICLE_CONTAINER swiper-container broadcastSwiper">
+              <div class="swiper-wrapper">
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/981" class="link_media" target="_blank">
+                      <img src="./img/media/2-1.png" height="20" alt="TBS">
+                    </a>
+                    <span class="time">2021.08.07. 13:45 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244220" target="_blank"
+                        class="thumb">
+                        <img src="./img/main/2-1.jpg" width="196" height="134"
+                          alt="한화솔루션 기체용기 설비투자 본격화, 류두형 수소탱크 선점 원해">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="http://tbs.seoul.kr/news/newsView.do?typ_800=6&amp;idx_800=3445174&amp;seq_800=20437751"
+                        target="_blank" class="title">알약 삼키면 끝?…코로나19 먹는 치료제, 왜 안 나오나?</a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244219" target="_blank"
+                            class="news">
+                            푸르덴셜생명 대표 1년 민기식, 윤종규 지지 업고 디지털 혁신에 집중
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244216" target="_blank"
+                            class="news">
+                            대부업 철수에 정부는 우수업체 우대제도, 리드코프에게 활로 되나
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244215" target="_blank"
+                            class="news">
+                            한국은행 금리인상 미뤄지나, 매파 고승범 금융통화위 떠나 금융위로
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244191" target="_blank"
+                            class="news">
+                            블룸버그이코노믹스, 미국 올해 경제성장률 전망치 6.3%로 낮춰
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244173" target="_blank"
+                            class="news">
+                            윤석열에 호감 46.0%, 이재명 40.1% 최재형 39.4% 이낙연 37.9%
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244172" target="_blank"
+                            class="news">
+                            신한금융 KB금융, 내부거래 공시미흡으로 과태료 처분 받아
+                          </a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        TBS 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/989" class="link_media" target="_blank">
+                      <img src="./img/media/2-2.png" height="20" alt="TBC">
+                    </a>
+                    <span class="time">2021.08.06. 16:06 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244220" target="_blank"
+                        class="thumb">
+                        <img src="./img/main/2-2.jpg" width="196" height="134" alt="대구서 교회발 집단 감염 재현되나?">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="http://www.tbc.co.kr/tbc_news/n14_newsview.html?p_no=20210805155427AE05674"
+                        target="_blank" class="title">
+                        대구서 교회발 집단 감염 재현되나?
+                      </a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244219" target="_blank"
+                            class="news">
+                            푸르덴셜생명 대표 1년 민기식, 윤종규 지지 업고 디지털 혁신에 집중
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244216" target="_blank"
+                            class="news">
+                            대부업 철수에 정부는 우수업체 우대제도, 리드코프에게 활로 되나
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244215" target="_blank"
+                            class="news">
+                            한국은행 금리인상 미뤄지나, 매파 고승범 금융통화위 떠나 금융위로
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244191" target="_blank"
+                            class="news">
+                            블룸버그이코노믹스, 미국 올해 경제성장률 전망치 6.3%로 낮춰
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244173" target="_blank"
+                            class="news">
+                            윤석열에 호감 46.0%, 이재명 40.1% 최재형 39.4% 이낙연 37.9%
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244172" target="_blank"
+                            class="news">
+                            신한금융 KB금융, 내부거래 공시미흡으로 과태료 처분 받아
+                          </a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        TBC 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- IT -->
+            <div class="_NM_NEWSSTAND_ARTICLE_CONTAINER swiper-container itSwiper">
+              <div class="swiper-wrapper">
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/092" class="link_media" target="_blank">
+                      <img src="./img/media/3-1.png" height="20" alt="지디넷코리아">
+                    </a>
+                    <span class="time">2021.08.07. 12:56</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="https://zdnet.co.kr/view/?no=20210806144142" target="_blank" class="thumb">
+                        <img src="./img/main/3-1.png" width="196" height="134"
+                          alt="알뜰폰 시장 과열...통신계열사 1만원대 요금제 앞세워 경품 공세">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="https://zdnet.co.kr/view/?no=20210806144142" target="_blank" class="title">
+                        알뜰폰 시장 과열...통신계열사 1만원대 요금제 앞세워 경품 공세
+                      </a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244219" target="_blank"
+                            class="news">
+                            푸르덴셜생명 대표 1년 민기식, 윤종규 지지 업고 디지털 혁신에 집중
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244216" target="_blank"
+                            class="news">
+                            대부업 철수에 정부는 우수업체 우대제도, 리드코프에게 활로 되나
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244215" target="_blank"
+                            class="news">
+                            한국은행 금리인상 미뤄지나, 매파 고승범 금융통화위 떠나 금융위로
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244191" target="_blank"
+                            class="news">
+                            블룸버그이코노믹스, 미국 올해 경제성장률 전망치 6.3%로 낮춰
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244173" target="_blank"
+                            class="news">
+                            윤석열에 호감 46.0%, 이재명 40.1% 최재형 39.4% 이낙연 37.9%
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244172" target="_blank"
+                            class="news">
+                            신한금융 KB금융, 내부거래 공시미흡으로 과태료 처분 받아
+                          </a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        지디넷코리아 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/977" class="link_media" target="_blank">
+                      <img src="./img/media/3-2.png" height="20" alt="헬로디디">
+                    </a>
+                    <span class="time">2021.08.06. 16:06 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="https://www.hellodd.com/news/articleView.html?idxno=93834" target="_blank" class="thumb">
+                        <img src="./img/main/3-2.jpg" width="196" height="134"
+                          alt="오픈D-21, 신세계 '과학+KAIST' 내걸었다···고객유치 본격">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="https://www.hellodd.com/news/articleView.html?idxno=93834" target="_blank" class="title">
+                        오픈D-21, 신세계 '과학+KAIST' 내걸었다···고객유치 본격</a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244219" target="_blank"
+                            class="news">
+                            푸르덴셜생명 대표 1년 민기식, 윤종규 지지 업고 디지털 혁신에 집중
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244216" target="_blank"
+                            class="news">
+                            대부업 철수에 정부는 우수업체 우대제도, 리드코프에게 활로 되나
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244215" target="_blank"
+                            class="news">
+                            한국은행 금리인상 미뤄지나, 매파 고승범 금융통화위 떠나 금융위로
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244191" target="_blank"
+                            class="news">
+                            블룸버그이코노믹스, 미국 올해 경제성장률 전망치 6.3%로 낮춰
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244173" target="_blank"
+                            class="news">
+                            윤석열에 호감 46.0%, 이재명 40.1% 최재형 39.4% 이낙연 37.9%
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244172" target="_blank"
+                            class="news">
+                            신한금융 KB금융, 내부거래 공시미흡으로 과태료 처분 받아
+                          </a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        헬로디디 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 영자지 -->
+            <div class="_NM_NEWSSTAND_ARTICLE_CONTAINER swiper-container englishSwiper">
+              <div class="swiper-wrapper">
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/946" class="link_media" target="_blank">
+                      <img src="./img/media/4-1.png" height="20" alt="YONHAPNEWS">
+                    </a>
+                    <span class="time">2021.08.07. 17:27 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="http://en.yna.co.kr/view/AEN20210807000953325?input=naver-newsstand" target="_blank"
+                        class="thumb">
+                        <img src="./img/main/4-1.jpg" width="196" height="134"
+                          alt="New cases bounce back above 1,800 despite stepped-up ...">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="http://en.yna.co.kr/view/AEN20210807000953325?input=naver-newsstand" target="_blank"
+                        class="title">
+                        New cases bounce back above 1,800 despite stepped-up ...
+                      </a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="https://koreajoongangdaily.joins.com/2021/08/06/national/socialAffairs/Covid19-social-distancing-Level-4/20210806160900405.html"
+                            target="_blank" class="news" data-clk="text" data-pid="330" data-gdid="330"
+                            data-aid="34b0c2bb347972fb">Distancing measures kept at highest level in capital for another
+                            2 weeks</a>
+                        </li>
+                        <li class="news_item">
+                          <a href="https://koreajoongangdaily.joins.com/2021/08/06/national/socialAffairs/vaccine-industrial-accident-nursing-assistant/20210806155200446.html"
+                            target="_blank" class="news" data-clk="text" data-pid="330" data-gdid="330"
+                            data-aid="5cce821878e38c98">Nursing assistant paralyzed after jab recognized as work
+                            accident</a>
+                        </li>
+                        <li class="news_item">
+                          <a href="https://koreajoongangdaily.joins.com/2021/08/07/business/industry/entertainment-funny-videos/20210807070100658.html"
+                            target="_blank" class="news" data-clk="text" data-pid="330" data-gdid="330"
+                            data-aid="81028dd60ea30956">Indirect advertising catches on as companies pitch to tough
+                            crowds</a>
+                        </li>
+                        <li class="news_item">
+                          <a href="https://koreajoongangdaily.joins.com/2021/08/06/business/finance/kakaobank-kakao-ipo/20210806191600482.html"
+                            target="_blank" class="news" data-clk="text" data-pid="330" data-gdid="330"
+                            data-aid="f0ccc23ac4fd8b7a">KakaoBank rises 79 percent on the first day of trading</a>
+                        </li>
+                        <li class="news_item">
+                          <a href="https://koreajoongangdaily.joins.com/2021/08/06/sports/olympics/seo-chaehyun/20210806222100500.html"
+                            target="_blank" class="news" data-clk="text" data-pid="330" data-gdid="330"
+                            data-aid="9d732c29ec918f29">Fiendish bouldering course derails Seo Chae-hyun's medal
+                            attempt</a>
+                        </li>
+                        <li class="news_item">
+                          <a href="https://koreajoongangdaily.joins.com/2021/08/06/entertainment/kpop/Shaun-producer-singersongwriter/20210806165400376.html"
+                            target="_blank" class="news" data-clk="text" data-pid="330" data-gdid="330"
+                            data-aid="7a9cf424b8c5a8e4">Singer-songwriter Shaun releases remix of Ed Sheeran’s 'Bad
+                            Habits'</a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        YONHAPNEWS 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/330" class="link_media" target="_blank">
+                      <img src="./img/media/4-2.png" height="20" alt="중앙데일리">
+                    </a>
+                    <span class="time">2021.08.06. 16:06 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="https://koreajoongangdaily.joins.com/2021/08/07/business/industry/Tteokbokki-gochujang-bts/20210807070111361.html"
+                        target="_blank" class="thumb">
+                        <img src="./img/main/4-2.jpg" width="196" height="134"
+                          alt="Tteokbokki a hit overseas as the world chows down Korean style">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="https://koreajoongangdaily.joins.com/2021/08/07/business/industry/Tteokbokki-gochujang-bts/20210807070111361.html"
+                        target="_blank" class="title">
+                        Tteokbokki a hit overseas as the world chows down Korean style
+                      </a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="https://koreajoongangdaily.joins.com/2021/08/06/national/socialAffairs/Covid19-social-distancing-Level-4/20210806160900405.html"
+                            target="_blank" class="news" data-clk="text" data-pid="330" data-gdid="330"
+                            data-aid="34b0c2bb347972fb">Distancing measures kept at highest level in capital for another
+                            2 weeks</a>
+                        </li>
+                        <li class="news_item">
+                          <a href="https://koreajoongangdaily.joins.com/2021/08/06/national/socialAffairs/vaccine-industrial-accident-nursing-assistant/20210806155200446.html"
+                            target="_blank" class="news" data-clk="text" data-pid="330" data-gdid="330"
+                            data-aid="5cce821878e38c98">Nursing assistant paralyzed after jab recognized as work
+                            accident</a>
+                        </li>
+                        <li class="news_item">
+                          <a href="https://koreajoongangdaily.joins.com/2021/08/07/business/industry/entertainment-funny-videos/20210807070100658.html"
+                            target="_blank" class="news" data-clk="text" data-pid="330" data-gdid="330"
+                            data-aid="81028dd60ea30956">Indirect advertising catches on as companies pitch to tough
+                            crowds</a>
+                        </li>
+                        <li class="news_item">
+                          <a href="https://koreajoongangdaily.joins.com/2021/08/06/business/finance/kakaobank-kakao-ipo/20210806191600482.html"
+                            target="_blank" class="news" data-clk="text" data-pid="330" data-gdid="330"
+                            data-aid="f0ccc23ac4fd8b7a">KakaoBank rises 79 percent on the first day of trading</a>
+                        </li>
+                        <li class="news_item">
+                          <a href="https://koreajoongangdaily.joins.com/2021/08/06/sports/olympics/seo-chaehyun/20210806222100500.html"
+                            target="_blank" class="news" data-clk="text" data-pid="330" data-gdid="330"
+                            data-aid="9d732c29ec918f29">Fiendish bouldering course derails Seo Chae-hyun's medal
+                            attempt</a>
+                        </li>
+                        <li class="news_item">
+                          <a href="https://koreajoongangdaily.joins.com/2021/08/06/entertainment/kpop/Shaun-producer-singersongwriter/20210806165400376.html"
+                            target="_blank" class="news" data-clk="text" data-pid="330" data-gdid="330"
+                            data-aid="7a9cf424b8c5a8e4">Singer-songwriter Shaun releases remix of Ed Sheeran’s 'Bad
+                            Habits'</a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        중앙데일리 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 스포츠/연예 -->
+            <div class="_NM_NEWSSTAND_ARTICLE_CONTAINER swiper-container sportsSwiper">
+              <div class="swiper-wrapper">
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/076" class="link_media" target="_blank">
+                      <img src="./img/media/5-1.png" height="20" alt="스포츠조선">
+                    </a>
+                    <span class="time">2021.08.07. 13:45 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="https://sports.chosun.com/news/ntype5.htm?id=202108070100049510003084&amp;ServiceDate=20210806"
+                        target="_blank" class="thumb" data-clk="thumb" data-pid="076" data-gdid="076"
+                        data-aid="45cc457805e683c8">
+                        <img src="./img/main/5-1.jpg" width="196" height="134"
+                          alt="“日 뒤집힌 불륜”..초신성 광수, 여배우와 불륜설로 논란ing">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="https://sports.chosun.com/news/ntype5.htm?id=202108070100049510003084&amp;ServiceDate=20210806"
+                        target="_blank" class="title" data-clk="thumb" data-pid="076" data-gdid="076"
+                        data-aid="45cc457805e683c8">
+                        “日 뒤집힌 불륜”..초신성 광수, 여배우와 불륜설로 논란ing
+                      </a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244219" target="_blank"
+                            class="news">
+                            푸르덴셜생명 대표 1년 민기식, 윤종규 지지 업고 디지털 혁신에 집중
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244216" target="_blank"
+                            class="news">
+                            대부업 철수에 정부는 우수업체 우대제도, 리드코프에게 활로 되나
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244215" target="_blank"
+                            class="news">
+                            한국은행 금리인상 미뤄지나, 매파 고승범 금융통화위 떠나 금융위로
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244191" target="_blank"
+                            class="news">
+                            블룸버그이코노믹스, 미국 올해 경제성장률 전망치 6.3%로 낮춰
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244173" target="_blank"
+                            class="news">
+                            윤석열에 호감 46.0%, 이재명 40.1% 최재형 39.4% 이낙연 37.9%
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244172" target="_blank"
+                            class="news">
+                            신한금융 KB금융, 내부거래 공시미흡으로 과태료 처분 받아
+                          </a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        스포츠조선 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/447" class="link_media" target="_blank" data-clk="logo">
+                      <img src="./img/media/5-2.png" height="20" alt="뉴스엔">
+                    </a>
+                    <span class="time">2021.08.06. 16:06 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="http://news.newsen.com/news_view.php?uid=202108061947354710" target="_blank"
+                        class="thumb" data-clk="thumb" data-pid="447" data-gdid="447" data-aid="26463a26852ac4a6">
+                        <img src="./img/main/5-2.jpg" width="196" height="134"
+                          alt="“엄마 죽여버릴 거야” 공포심에 갇힌 초3 딸, 의학적 도움 필요한 상황(금쪽같은)[어제TV]">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="http://news.newsen.com/news_view.php?uid=202108061947354710" target="_blank"
+                        class="title">
+                        “엄마 죽여버릴 거야” 공포심에 갇힌 초3 딸, 의학적 도움 필요한 상황(금쪽같은)[어제TV]</a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244219" target="_blank"
+                            class="news">
+                            푸르덴셜생명 대표 1년 민기식, 윤종규 지지 업고 디지털 혁신에 집중
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244216" target="_blank"
+                            class="news">
+                            대부업 철수에 정부는 우수업체 우대제도, 리드코프에게 활로 되나
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244215" target="_blank"
+                            class="news">
+                            한국은행 금리인상 미뤄지나, 매파 고승범 금융통화위 떠나 금융위로
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244191" target="_blank"
+                            class="news">
+                            블룸버그이코노믹스, 미국 올해 경제성장률 전망치 6.3%로 낮춰
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244173" target="_blank"
+                            class="news">
+                            윤석열에 호감 46.0%, 이재명 40.1% 최재형 39.4% 이낙연 37.9%
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244172" target="_blank"
+                            class="news">
+                            신한금융 KB금융, 내부거래 공시미흡으로 과태료 처분 받아
+                          </a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        뉴스엔 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 매거진/전문지 -->
+            <div class="_NM_NEWSSTAND_ARTICLE_CONTAINER swiper-container magazineSwiper">
+              <div class="swiper-wrapper">
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/955" class="link_media" target="_blank">
+                      <img src="./img/media/6-1.png" height="20" alt="독서신문">
+                    </a>
+                    <span class="time">2021.08.07. 13:45 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="http://www.readersnews.com/news/articleView.html?idxno=103811" target="_blank"
+                        class="thumb">
+                        <img src="./img/main/6-1.jpg" width="196" height="134" alt="무더위 날릴 8월의 책… 국립중앙도서관 사서가 추천합니다">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="http://www.readersnews.com/news/articleView.html?idxno=103811" target="_blank"
+                        class="title">
+                        무더위 날릴 8월의 책… 국립중앙도서관 사서가 추천합니다
+                      </a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244219" target="_blank"
+                            class="news">
+                            푸르덴셜생명 대표 1년 민기식, 윤종규 지지 업고 디지털 혁신에 집중
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244216" target="_blank"
+                            class="news">
+                            대부업 철수에 정부는 우수업체 우대제도, 리드코프에게 활로 되나
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244215" target="_blank"
+                            class="news">
+                            한국은행 금리인상 미뤄지나, 매파 고승범 금융통화위 떠나 금융위로
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244191" target="_blank"
+                            class="news">
+                            블룸버그이코노믹스, 미국 올해 경제성장률 전망치 6.3%로 낮춰
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244173" target="_blank"
+                            class="news">
+                            윤석열에 호감 46.0%, 이재명 40.1% 최재형 39.4% 이낙연 37.9%
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244172" target="_blank"
+                            class="news">
+                            신한금융 KB금융, 내부거래 공시미흡으로 과태료 처분 받아
+                          </a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        독서신문 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/356" class="link_media" target="_blank">
+                      <img src="./img/media/6-2.png" height="20" alt="게임메카">
+                    </a>
+                    <span class="time">2021.08.06. 16:06 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="https://www.gamemeca.com/view.php?gid=1665073" target="_blank" class="thumb">
+                        <img src="./img/main/6-2.jpg" width="196" height="134" alt="[이구동성] 블리자드 이륙 후 최대 위기">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="https://www.gamemeca.com/view.php?gid=1665073" target="_blank" class="title">
+                        [이구동성] 블리자드 이륙 후 최대 위기
+                      </a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244219" target="_blank"
+                            class="news">
+                            푸르덴셜생명 대표 1년 민기식, 윤종규 지지 업고 디지털 혁신에 집중
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244216" target="_blank"
+                            class="news">
+                            대부업 철수에 정부는 우수업체 우대제도, 리드코프에게 활로 되나
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244215" target="_blank"
+                            class="news">
+                            한국은행 금리인상 미뤄지나, 매파 고승범 금융통화위 떠나 금융위로
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244191" target="_blank"
+                            class="news">
+                            블룸버그이코노믹스, 미국 올해 경제성장률 전망치 6.3%로 낮춰
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244173" target="_blank"
+                            class="news">
+                            윤석열에 호감 46.0%, 이재명 40.1% 최재형 39.4% 이낙연 37.9%
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244172" target="_blank"
+                            class="news">
+                            신한금융 KB금융, 내부거래 공시미흡으로 과태료 처분 받아
+                          </a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        게임메카 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 지역  -->
+            <div class="_NM_NEWSSTAND_ARTICLE_CONTAINER swiper-container locationSwiper">
+              <div class="swiper-wrapper">
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/338" class="link_media" target="_blank">
+                      <img src="./img/media/7-1.png" height="20" alt="경인일보">
+                    </a>
+                    <span class="time">2021.08.07. 13:45 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="http://www.kyeongin.com/main/view.php?key=20210805010001098" target="_blank"
+                        class="thumb">
+                        <img src="./img/main/7-1.jpg" width="196" height="134"
+                          alt="꿈 찾아 홀로 상경했던 그 청년… 0.5평에서 '성공의 열쇠'를 찾다">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="http://www.kyeongin.com/main/view.php?key=20210805010001098" target="_blank"
+                        class="title">
+                        꿈 찾아 홀로 상경했던 그 청년… 0.5평에서 '성공의 열쇠'를 찾다
+                      </a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244219" target="_blank"
+                            class="news">
+                            푸르덴셜생명 대표 1년 민기식, 윤종규 지지 업고 디지털 혁신에 집중
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244216" target="_blank"
+                            class="news">
+                            대부업 철수에 정부는 우수업체 우대제도, 리드코프에게 활로 되나
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244215" target="_blank"
+                            class="news">
+                            한국은행 금리인상 미뤄지나, 매파 고승범 금융통화위 떠나 금융위로
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244191" target="_blank"
+                            class="news">
+                            블룸버그이코노믹스, 미국 올해 경제성장률 전망치 6.3%로 낮춰
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244173" target="_blank"
+                            class="news">
+                            윤석열에 호감 46.0%, 이재명 40.1% 최재형 39.4% 이낙연 37.9%
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244172" target="_blank"
+                            class="news">
+                            신한금융 KB금융, 내부거래 공시미흡으로 과태료 처분 받아
+                          </a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        경인일보 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="news_area _NM_NEWSSTAND_LIST_press_valid swiper-slide">
+                  <div class="media_box">
+                    <a href="http://newsstand.naver.com/331" class="link_media" target="_blank">
+                      <img src="./img/media/7-2.png" height="20" alt="충청투데이">
+                    </a>
+                    <span class="time">2021.08.06. 16:06 편집</span>
+                    <a href="#" role="button" class="btn_plus _NM_NEWSSTAND_LIST_subscribe_press">구독하기</a>
+                  </div>
+                  <div class="news_box">
+                    <div class="main_news">
+                      <a href="https://www.cctoday.co.kr/news/articleView.html?idxno=2147446" target="_blank"
+                        class="thumb">
+                        <img src="./img/main/7-2.jpg" width="196" height="134" alt="논산 건양대 주변 원룸 부도 속출… 보증금 회수 전쟁">
+                        <span class="thumb_bd"></span>
+                      </a>
+                      <a href="https://www.cctoday.co.kr/news/articleView.html?idxno=2147446" target="_blank"
+                        class="title">
+                        논산 건양대 주변 원룸 부도 속출… 보증금 회수 전쟁
+                      </a>
+                    </div>
+                    <div class="sub_news">
+                      <ul class="list_news">
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244219" target="_blank"
+                            class="news">
+                            푸르덴셜생명 대표 1년 민기식, 윤종규 지지 업고 디지털 혁신에 집중
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244216" target="_blank"
+                            class="news">
+                            대부업 철수에 정부는 우수업체 우대제도, 리드코프에게 활로 되나
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244215" target="_blank"
+                            class="news">
+                            한국은행 금리인상 미뤄지나, 매파 고승범 금융통화위 떠나 금융위로
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244191" target="_blank"
+                            class="news">
+                            블룸버그이코노믹스, 미국 올해 경제성장률 전망치 6.3%로 낮춰
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244173" target="_blank"
+                            class="news">
+                            윤석열에 호감 46.0%, 이재명 40.1% 최재형 39.4% 이낙연 37.9%
+                          </a>
+                        </li>
+                        <li class="news_item">
+                          <a href="http://www.businesspost.co.kr/BP?command=article_view&amp;num=244172" target="_blank"
+                            class="news">
+                            신한금융 KB금융, 내부거래 공시미흡으로 과태료 처분 받아
+                          </a>
+                        </li>
+                      </ul>
+                      <p class="notice_msg">
+                        충청투데이 언론사에서 직접 편집한 뉴스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- thumb -->
+        <div id="NM_NEWSSTAND_DEFAULT_THUMB" class="group_news">
+          thumb 영역
+        </div>
+
+        <!-- 구독한 언론사 -->
+        <div id="NM_NEWSSTAND_MY_EMPTY" class="group_news">
+          <div class="error_view">
+            <div class="error_area">
+              <strong class="error_msg">구독한 언론사가 없습니다.</strong>
+              <p class="dsc_msg">언론사 구독 설정에서 관심있는 언론사를 구독하시면<br>언론사가 직접 편집한 뉴스들을 네이버 홈에서 바로 보실 수 있습니다.</p>
+              <a href="http://newsstand.naver.com/config.html" class="link_redirect" target="_blank">언론사 구독 설정하기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="newsStand.js"></script>
+</body>
+
+</html>
